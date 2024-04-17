@@ -8,6 +8,8 @@ app.http('httpTrigger1', {
 
         const name = request.query.get('name') || await request.text() || 'world';
 
+        context.bindings.outputBlob = name;
+
         return { body: `Hello, ${name}!` };
     }
 });
